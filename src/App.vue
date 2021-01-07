@@ -1,9 +1,13 @@
 <template>
   <main id="app">
     <h1>Welcome, Json Editor Test App</h1>
-    <json-editor class="border"></json-editor>
+    <json-editor
+      :initialJson="jsonData"
+      @updateData="setJsonData"
+      class="border"
+    ></json-editor>
     <section class="border">
-      <h2>Loaded Json Data</h2>
+      <h2>Updated Json Data</h2>
       <pre>{{ jsonData }}</pre>
     </section>
   </main>
@@ -23,6 +27,11 @@ export default {
         dummy: "data"
       }
     };
+  },
+  methods: {
+    setJsonData(data) {
+      this.jsonData = data;
+    }
   }
 };
 </script>
