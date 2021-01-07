@@ -1,22 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <main id="app">
+    <h1>Welcome, Json Editor Test App</h1>
+    <json-editor class="border"></json-editor>
+    <section class="border">
+      <h2>Loaded Json Data</h2>
+      <pre>{{ jsonData }}</pre>
+    </section>
+  </main>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import JsonEditor from "./components/JsonEditor.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    JsonEditor
+  },
+  data() {
+    return {
+      jsonData: {
+        dummy: "data"
+      }
+    };
   }
 };
 </script>
 
 <style>
+section {
+  text-align: left;
+  padding: 30px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,5 +40,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.border {
+  margin: 20px;
+  border-color: darkgrey;
+  border-style: solid;
+  border-radius: 5px;
 }
 </style>
